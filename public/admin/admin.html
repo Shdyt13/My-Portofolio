@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Admin Panel</h2>
+      </div>
+      <nav class="sidebar-menu">
+        <ul>
+          <li><a href="#" data-section="dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="#" data-section="skills"><i class="fas fa-tools"></i> Skills</a></li>
+          <li><a href="#" data-section="education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+          <li><a href="#" data-section="organization"><i class="fas fa-users"></i> Organization</a></li>
+          <li><a href="#" data-section="activity"><i class="fas fa-running"></i> Activity</a></li>
+          <li><a href="#" data-section="project"><i class="fas fa-briefcase"></i> Project</a></li>
+          <li><a href="#" data-section="article"><i class="fas fa-file-alt"></i> Article</a></li>
+          <li><a href="#" data-section="gallery"><i class="fas fa-image"></i> Gallery</a></li>
+          <li><a href="#" data-section="servicefee"><i class="fas fa-dollar-sign"></i> Service Fee</a></li>
+          <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <!-- Dashboard Section -->
+      <section id="dashboard" class="section active">
+        <div class="section-header">
+          <h1>Welcome, Sapar!</h1>
+          <p>Waktunya menyusun cerita baru dalam portofoliomu.</p>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section">
+        <div class="section-header">
+          <h2>Manage Skills</h2>
+        </div>
+        
+        <div class="form-container">
+          <form id="skillForm">
+            <input type="hidden" id="skillId">
+            
+            <div class="form-group">
+              <label for="skillName">Skill Name</label>
+              <input type="text" id="skillName" class="form-control" placeholder="e.g. Web Development" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="skillIcon">Icon Path</label>
+              <input type="text" id="skillIcon" class="form-control" placeholder="e.g. img/icons/html5.svg" required>
+              <small class="form-text">Use SVG or PNG format</small>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Skill</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-container">
+          <h3>Skills List</h3>
+          <ul id="skillsList" class="data-list"></ul>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="section">
+        <div class="section-header">
+          <h2>Manage Education</h2>
+        </div>
+        
+        <div class="form-container">
+          <form id="educationForm">
+            <input type="hidden" id="eduId">
+            
+            <div class="form-group">
+              <label for="eduYear">Year Range</label>
+              <input type="text" id="eduYear" class="form-control" placeholder="e.g. 2015-2019" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="eduSchool">Institution Name</label>
+              <input type="text" id="eduSchool" class="form-control" placeholder="e.g. University of Indonesia" required>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Education</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-container">
+          <h3>Education List</h3>
+          <ul id="educationList" class="data-list"></ul>
+        </div>
+      </section>
+
+      <!-- Organization Section -->
+      <section id="organization" class="section">
+        <div class="section-header">
+          <h2>Manage Organization</h2>
+        </div>
+        
+        <div class="form-container">
+          <form id="organizationForm">
+            <input type="hidden" id="orgId">
+            
+            <div class="form-group">
+              <label for="orgYear">Year Range</label>
+              <input type="text" id="orgYear" class="form-control" placeholder="e.g. 2020-2022" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="orgName">Organization Name</label>
+              <input type="text" id="orgName" class="form-control" placeholder="e.g. Google Developer Group" required>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Organization</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-container">
+          <h3>Organization List</h3>
+          <ul id="organizationList" class="data-list"></ul>
+        </div>
+      </section>
+
+      <!-- Activity Section -->
+      <section id="activity" class="section">
+        <div class="section-header">
+          <h2>Manage Activity</h2>
+        </div>
+        
+        <div class="form-container">
+          <form id="activityForm">
+            <input type="hidden" id="activityId">
+            
+            <div class="form-group">
+              <label for="activityName">Activity Name</label>
+              <input type="text" id="activityName" class="form-control" placeholder="e.g. Webinar Speaker" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="activityDate">Date/Time</label>
+              <input type="text" id="activityDate" class="form-control" placeholder="e.g. 2022 - Present" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="activityDesc">Description</label>
+              <textarea id="activityDesc" class="form-control" rows="4" placeholder="Describe the activity..." required></textarea>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Activity</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-container">
+          <h3>Activity List</h3>
+          <ul id="activityList" class="data-list"></ul>
+        </div>
+      </section>
+
+      <!-- Project Section -->
+      <section id="project" class="section">
+        <div class="section-header">
+          <h2>Manage Projects</h2>
+        </div>
+        
+        <div class="form-container">
+          <form id="projectForm">
+            <input type="hidden" id="projectId">
+            
+            <div class="form-group">
+              <label for="projectTitle">Project Title</label>
+              <input type="text" id="projectTitle" class="form-control" placeholder="e.g. E-commerce Website" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="projectDescription">Description</label>
+              <textarea id="projectDescription" class="form-control" rows="4" placeholder="Project details..." required></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="projectLink">Project URL</label>
+              <input type="url" id="projectLink" class="form-control" placeholder="https://example.com" required>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Project</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-container">
+          <h3>Project List</h3>
+          <ul id="projectList" class="data-list"></ul>
+        </div>
+      </section>
+
+      <!-- Article Section -->
+      <section id="article" class="section">
+        <div class="section-header">
+          <h2>Manage Articles</h2>
+        </div>
+        
+        <div class="form-container">
+          <form id="articleForm">
+            <input type="hidden" id="articleId">
+            
+            <div class="form-group">
+              <label for="articleTitle">Article Title</label>
+              <input type="text" id="articleTitle" class="form-control" placeholder="Enter article title" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="articleDesc">Content</label>
+              <textarea id="articleDesc" class="form-control" rows="6" placeholder="Write your article content..." required></textarea>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Article</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-container">
+          <h3>Article List</h3>
+          <ul id="articleList" class="data-list"></ul>
+        </div>
+      </section>
+
+      <!-- Gallery Section - Perbaikan Form -->
+      <!-- Gallery Section - Simplified Version -->
+      <section id="gallery" class="section">
+        <div class="section-header">
+          <h2>Manage Gallery</h2>
+          <p>Kelima gambar gallery dengan menyimpan path gambar dan caption</p>
+        </div>
+        
+        <div class="form-container">
+          <form id="galleryForm">
+            <input type="hidden" id="galleryId">
+            
+            <div class="form-group">
+              <label for="galleryImage">Image Path</label>
+              <input type="text" id="galleryImage" class="form-control" 
+                    placeholder="e.g. img/gallery/art1.jpg" required>
+              <small class="form-text">Path relatif ke folder public (contoh: img/gallery/nama-file.jpg)</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="galleryCaption">Caption</label>
+              <input type="text" id="galleryCaption" class="form-control" 
+                    placeholder="e.g. Lukisan bebas, 2023" required>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Gallery Item</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-container">
+          <h3>Gallery Items</h3>
+          <div id="galleryGrid" class="gallery-grid">
+            <!-- Gallery items will be loaded here -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Service Fee Section -->
+      <section id="servicefee" class="section">
+        <div class="section-header">
+          <h2>Manage Service Fee</h2>
+        </div>
+        
+        <div class="form-container">
+          <form id="serviceFeeForm">
+            <input type="hidden" id="serviceId">
+            
+            <div class="form-group">
+              <label for="serviceName">Service Name</label>
+              <input type="text" id="serviceName" class="form-control" placeholder="e.g. Web Development" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="serviceDescription">Description</label>
+              <textarea id="serviceDescription" class="form-control" rows="3" placeholder="Service description" required></textarea>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="servicePrice">Price (IDR)</label>
+                <input type="number" id="servicePrice" class="form-control" placeholder="e.g. 500000" min="0" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="serviceDuration">Duration</label>
+                <select id="serviceDuration" class="form-control" required>
+                  <option value="">Select duration</option>
+                  <option value="hourly">Hourly</option>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="project">Per Project</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Service</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-container">
+          <h3>Service List</h3>
+          <table id="serviceTable" class="service-table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="serviceList"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font dan warna dasar */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F9F9FB;
+  color: #10113A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container utama */
+.login-container {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 120px 50px 150px;
+  width: 100%;
+  max-width: 500px; /* diperbesar */
+  text-align: center;
+  border: 1px solid #60686E26;
+}
+
+/* Tombol kembali di kanan atas card */
+.back-button {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 13px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #363636;
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #cdcdcd;
+}
+
+/* Judul */
+.login-container h2 {
+  font-size: 28px;
+  font-family: 'Lora', serif;
+  margin-bottom: 24px;
+  color: #10113A;
+}
+
+/* Form */
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Input field */
+#loginForm input {
+  padding: 12px 16px;
+  border: 1px solid #60686E26;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #F0F0F5;
+  transition: 0.3s ease;
+}
+
+#loginForm input:focus {
+  outline: none;
+  border-color: #10113A;
+  background-color: #ffffff;
+}
+
+/* Tombol login */
+#loginForm button {
+  padding: 12px;
+  background-color: #10113A;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 150px;
+  margin-left: 120px; /* Pindahkan tombol ke kanan */
+}
+
+#loginForm button:hover {
+  background-color: #1e1f4a;
+}
+
+/* Pesan error */
+.error-message {
+  color: #D8000C;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Header Dashboard */
+.admin-header {
+  background-color: #10113A;
+  color: white;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h1 {
+  font-family: 'Lora', serif;
+  font-size: 28px;
+}
+
+/* Tombol Logout */
+.logout-btn {
+  background-color: #ffffff;
+  color: #10113A;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #F0F0F5;
+  color: #10113A;
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    padding: 70px 30px 90px;
+    width: 90%;
+  }
+
+  .login-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  #loginForm button {
+    max-width: 50%;
+    margin-left: 90px; /* Reset margin untuk responsivitas */
+  }
+}

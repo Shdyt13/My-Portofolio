@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sapar Hidayat. S - Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Firebase SDK -->
+  <script defer src="/__/firebase/11.9.1/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/11.9.1/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/11.9.1/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script defer src="js/firebase-config.js"></script>
+</head>
+<body>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Section 1: Home -->
+  <section class="home-section" id="home">
+    <div class="container">
+      <div class="home-text">
+        <h1 class="title-1">Hi,<br>I'm Sapar Hidayat. S</h1>
+        <h2 class="title-2">Web Developer & UI/UX Designer</h2>
+        <p class="title-3">
+          Informatics Engineering student with interest in web development, UI/UX design, and algorithm analysis.
+          I love combining technology and art to create innovative solutions.
+        </p>
+      </div>
+      <div class="home-photo">
+        <img src="img/profile.png" alt="Sapar Hidayat">
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section" id="skills">
+  <div class="skills-container">
+    <h2 class="skills-title">Skills</h2>
+    <div class="skills-grid" id="skillsGrid">
+      <!-- <div class="skill-item"><img src="img/skill-icons/html.png" alt="HTML"></div>
+      <div class="skill-item"><img src="img/skill-icons/js.png" alt="JavaScript"></div>
+      <div class="skill-item"><img src="img/skill-icons/python.png" alt="Python"></div>
+      <div class="skill-item"><img src="img/skill-icons/css.png" alt="CSS"></div>
+      <div class="skill-item"><img src="img/skill-icons/figma.png" alt="Figma"></div>
+      <div class="skill-item"><img src="img/skill-icons/C.png" alt="C Programming"></div> -->
+    </div>
+  </div>
+</section>
+<section class="soft-skills-section" id="softskills">
+  <div class="soft-skills-container">
+    <h2 class="soft-skills-title">Soft Skills</h2>
+    
+    <div class="soft-skills-cards">
+      <!-- Card 1: ART -->
+      <div class="soft-skill-card">
+        <h3 class="card-title">ART</h3>
+        <p class="card-description">
+          Memiliki ketertarikan tinggi dalam seni visual, khususnya melukis sebagai media ekspresi dan ketenangan.
+        </p>
+      </div>
+
+      <!-- Card 2: Guitar -->
+      <div class="soft-skill-card reverse">
+        <p class="card-description">
+          Gitar sebagai bentuk ekspresi dan relaksasi, membantu menjaga keseimbangan antara produktivitas dan kreativitas.
+        </p>
+        <h3 class="card-title">Guitar</h3>
+      </div>
+      <div class="gallery-button-wrapper">
+        <a href="gallery.html" class="gallery-button">Show My Gallery</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="edu-org-section" id="education">
+  <div class="edu-org-container">
+    <!-- EDUCATION -->
+    <div class="edu-column">
+      <h2 class="edu-title">Education</h2>
+      <div id="educationData">
+        <!-- Dynamic education data will be inserted here -->
+      </div>
+    </div>
+
+    <div class="edu-org-divider"></div>
+
+    <!-- ORGANIZATION -->
+  <div class="org-column">
+    <h2 class="edu-title">Organization</h2>
+    <div id="organizationData">
+      <!-- Data organisasi akan dimuat dari Firebase -->
+    </div>
+  </div>
+
+</section>
+
+<section class="activity-section" id="activity">
+  <div class="activity-container">
+    <h2 class="activity-title">Activity</h2>
+      <div class="activity-cards" id="activityData">
+  <!-- Aktivitas akan dimuat dari Firebase -->
+      </div>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
+</body>
+<script type="module" src="js/main.js"></script>
+</html>
