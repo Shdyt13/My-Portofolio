@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
 
-// Firebase Config (copy dari firebase-config.js atau sesuaikan)
 const firebaseConfig = {
   apiKey: "AIzaSyBnPysAHewJAo6dZsQ7c3Llq5HHev423OM",
   authDomain: "portofolio-sapar-fb224.firebaseapp.com",
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        window.location.href = "admin.html"; // ✅ redirect berhasil
+        window.location.href = "admin.html"; 
       })
       .catch((error) => {
         console.error("Login gagal:", error.message);

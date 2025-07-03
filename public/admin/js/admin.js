@@ -1,11 +1,11 @@
-// Tunggu hingga DOM siap
+// Menunggu hingga DOM siap
 document.addEventListener("DOMContentLoaded", function () {
 const loginForm = document.getElementById("loginForm");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const errorDisplay = document.getElementById("login-error");
 
-// Tangani submit form login
+// Menangani submit form login
 loginForm.addEventListener("submit", function (e) {
 e.preventDefault();
 

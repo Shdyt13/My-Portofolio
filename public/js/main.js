@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
   .then(data => {
     document.getElementById('navbar-placeholder').innerHTML = data;
 
-    // Setelah navbar dimuat, ambil elemen burger dan menu
+    // Initialize burger menu toggle
     const burger = document.getElementById('burger');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -178,11 +178,11 @@ const servicesList = document.getElementById('servicesList');
 if (servicesList) {
   getDocs(collection(db, 'services'))
     .then((snapshot) => {
-      servicesList.innerHTML = ''; // Kosongkan list
+      servicesList.innerHTML = ''; 
       snapshot.forEach((doc) => {
         const service = doc.data();
         const li = document.createElement('li');
-        li.innerHTML = `🔹 ${service.name} : Mulai dari ${formatPrice(service.price)}`;
+        li.innerHTML = ` ${service.name} : Mulai dari ${formatPrice(service.price)}`;
         servicesList.appendChild(li);
       });
     })
@@ -192,7 +192,7 @@ if (servicesList) {
     });
 }
 
-// Fungsi format harga ke IDR
+// Function to format price in IDR
 function formatPrice(price) {
   return new Intl.NumberFormat('id-ID', {
     style: 'currency',
@@ -206,7 +206,7 @@ const galleryGrid = document.getElementById('galleryGrid');
 if (galleryGrid) {
   getDocs(collection(db, 'gallery'))
     .then((snapshot) => {
-      galleryGrid.innerHTML = ''; // Kosongkan gallery
+      galleryGrid.innerHTML = ''; 
       snapshot.forEach((doc) => {
         const item = doc.data();
         const galleryItem = document.createElement('div');

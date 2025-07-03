@@ -150,6 +150,6 @@ body {
 
   #loginForm button {
     max-width: 50%;
-    margin-left: 90px; /* Reset margin untuk responsivitas */
+    margin-left: 90px; 
   }
 }
