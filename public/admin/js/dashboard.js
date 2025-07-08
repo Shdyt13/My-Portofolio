@@ -38,7 +38,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initLogout();
   initForms();
   loadInitialData();
+  initImagePreview();
 });
+
+// Initialize Image Preview
+function initImagePreview() {
+  const imageInput = document.getElementById('projectImage');
+  const imagePreview = document.getElementById('imagePreview');
+
+  if (imageInput && imagePreview) {
+    imageInput.addEventListener('input', () => {
+      const url = imageInput.value;
+      if (url) {
+        imagePreview.src = url;
+        imagePreview.style.display = 'block';
+      } else {
+        imagePreview.style.display = 'none';
+      }
+    });
+  }
+}
 
 // Navigation Handler
 function initNavigation() {
@@ -312,7 +331,7 @@ window.deleteEducation = async function(id) {
 };
 
 // ==============================================
-// ORGANIZATION SECTION (Fully Fixed)
+// ORGANIZATION SECTION
 // ==============================================
 function initOrganizationForm() {
   const form = document.getElementById('organizationForm');
@@ -545,7 +564,7 @@ window.deleteActivity = async function(id) {
 };
 
 // ==============================================
-// PROJECT SECTION
+// PROJECT SECTION (Updated with Image Preview and Display)
 // ==============================================
 function initProjectForm() {
   const form = document.getElementById('projectForm');
@@ -558,17 +577,19 @@ function initProjectForm() {
     const title = document.getElementById('projectTitle').value;
     const description = document.getElementById('projectDescription').value;
     const link = document.getElementById('projectLink').value;
-    
-    if (!title || !description || !link) {
+    const image = document.getElementById('projectImage').value;
+
+    if (!title || !description || !link || !image) {
       showToast('All fields are required', true);
       return;
     }
 
     try {
       const projectData = {
-        title: title,
-        description: description,
-        link: link,
+        title,
+        description,
+        link,
+        image,
         updatedAt: serverTimestamp()
       };
       
@@ -582,9 +603,10 @@ function initProjectForm() {
         });
         showToast('Project added successfully');
       }
-      
+
       form.reset();
       document.getElementById('projectId').value = '';
+      document.getElementById('imagePreview').style.display = 'none';
       loadProjects();
     } catch (err) {
       showToast('Error saving project: ' + err.message, true);
@@ -612,8 +634,9 @@ async function loadProjects() {
     querySnapshot.forEach(docSnap => {
       const project = docSnap.data();
       const li = document.createElement('li');
-      li.className = 'data-list-item';
+      li.className = 'data-list-item with-image';
       li.innerHTML = `
+        <img src="${project.image || 'https://via.placeholder.com/100'}" class="project-list-image" alt="${project.title}">
         <div class="data-list-content">
           <strong>${project.title}</strong>
           <p>${project.description}</p>
@@ -641,6 +664,16 @@ window.editProject = async function(id) {
       document.getElementById('projectTitle').value = data.title || '';
       document.getElementById('projectDescription').value = data.description || '';
       document.getElementById('projectLink').value = data.link || '';
+      document.getElementById('projectImage').value = data.image || '';
+      
+      // Show preview if image exists
+      const imagePreview = document.getElementById('imagePreview');
+      if (data.image) {
+        imagePreview.src = data.image;
+        imagePreview.style.display = 'block';
+      } else {
+        imagePreview.style.display = 'none';
+      }
       
       document.getElementById('projectForm').scrollIntoView({ behavior: 'smooth' });
     }

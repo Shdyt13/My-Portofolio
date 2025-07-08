@@ -106,42 +106,43 @@ if (orgContainer) {
     });
   }
 
-  window.addEventListener('DOMContentLoaded', async () => {
-    // Load Projects
-    const projectsGrid = document.getElementById('projectsGrid');
-    
-    if (projectsGrid) {
-        try {
-            const querySnapshot = await getDocs(collection(db, 'projects'));
-            projectsGrid.innerHTML = '';
-            
-            querySnapshot.forEach(doc => {
-                const project = doc.data();
-                
-                const projectCard = `
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3>${project.title}</h3>
-                            <p>${project.description}</p>
-                        </div>
-                        <a href="${project.link}" 
-                           target="_blank" 
-                           class="project-link"
-                           aria-label="View ${project.title}">
-                            View Project
-                            <span class="link-icon">→</span>
-                        </a>
-                    </div>
-                `;
-                
-                projectsGrid.insertAdjacentHTML('beforeend', projectCard);
-            });
+  // Load Projects
+window.addEventListener('DOMContentLoaded', async () => {
+  const projectsGrid = document.getElementById('projectsGrid');
 
-        } catch (error) {
-            console.error('Error loading projects:', error);
-            projectsGrid.innerHTML = '<p class="error-message">Failed to load projects. Please try again later.</p>';
-        }
+  if (projectsGrid) {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'projects'));
+      projectsGrid.innerHTML = '';
+
+      querySnapshot.forEach(doc => {
+        const project = doc.data();
+
+        const projectCard = `
+          <div class="project-card">
+            <img src="${project.image}" alt="${project.title}" class="project-image"/>
+            <div class="project-content">
+              <h3>${project.title}</h3>
+              <p>${project.description}</p>
+            </div>
+            <a href="${project.link}" 
+              target="_blank" 
+              class="project-link"
+              aria-label="View ${project.title}">
+              View Project
+              <span class="link-icon">→</span>
+            </a>
+          </div>
+        `;
+
+        projectsGrid.insertAdjacentHTML('beforeend', projectCard);
+      });
+
+    } catch (error) {
+      console.error('Error loading projects:', error);
+      projectsGrid.innerHTML = '<p class="error-message">Failed to load projects. Please try again later.</p>';
     }
+  }
 });
 
 // Load Articles

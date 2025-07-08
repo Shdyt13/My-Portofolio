@@ -467,3 +467,27 @@ select.form-control {
     width: 100%;
   }
 }
+
+/* ========== PROJECT IMAGE PREVIEW IN FORM ========== */
+.project-preview-image {
+  margin-top: 1rem;
+  max-width: 150px;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: block;
+}
+
+/* ========== PROJECT LIST ITEM WITH IMAGE ========== */
+.data-list-item.with-image {
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.project-list-image {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  box-shadow: var(--box-shadow);
+}
